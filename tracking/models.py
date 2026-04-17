@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from django.core.validators import MinValueValidator, MaxValueValidator
+#from django.core.validators import MinValueValidator, MaxValueValidator
 
 class PostOffice(models.Model):
     number = models.CharField(max_length=20, unique=True)
@@ -33,13 +33,13 @@ class Parcel(models.Model):
     weight = models.DecimalField(
         max_digits=5,
         decimal_places=2,
-        validators=[MinValueValidator(0.01), MaxValueValidator(30)]
+        #validators=[MinValueValidator(0.01), MaxValueValidator(30)]
     )
 
     declared_value = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        validators=[MinValueValidator(0)]
+        #validators=[MinValueValidator(0)]
     )
 
     origin_office = models.ForeignKey(
