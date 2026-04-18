@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "973ad2dd-dd14-4da2-8f09-26ed0fdc8267",
+    "name": "Parcel Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54125824",
+    "_collection_link": "https://go.postman.co/collection/54125824-973ad2dd-dd14-4da2-8f09-26ed0fdc8267?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Offices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/offices/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "offices",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Office",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"number\": \"1\",\r\n    \"city\": \"Київ\",\r\n    \"address\": \"вул. Хрещатик, 1\",\r\n    \"postal_code\": \"01001\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/offices/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "offices",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get token",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Create Parcel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"sender_name\": \"Іваненко Іван Іванович\",\r\n    \"sender_phone\": \"+380991234567\",\r\n    \"receiver_name\": \"Петренко Петро Петрович\",\r\n    \"receiver_phone\": \"+380997654321\",\r\n    \"weight\": \"2.50\",\r\n    \"declared_value\": \"500.00\",\r\n    \"origin_office\": 1,\r\n    \"destination_office\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/parcels/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "parcels",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Parcel by Tracking Number",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/parcels/UA1371B5C742/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "parcels",
+            "UA1371B5C742",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update parcel status",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"status\": \"accepted\",\r\n    \"office\": 1,\r\n    \"comment\": \"Прийнято у відділенні\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/parcels/UA1371B5C742/status/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "parcels",
+            "UA1371B5C742",
+            "status",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Parcels by Office",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/offices/1/parcels/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "offices",
+            "1",
+            "parcels",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Parcels with filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/parcels/?status=accepted&from_city=Київ",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "parcels",
+            ""
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "accepted"
+            },
+            {
+              "key": "from_city",
+              "value": "Київ"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "Token 6ef5297b1930a46def2b0ecfd841c36235ee5579",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
