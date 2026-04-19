@@ -11,11 +11,11 @@
 
 ## Запуск проекту
 
-### Через Docker (рекомендовано)
+### Через Docker 
 
 1. Клонуй репозиторій:
 ```bash
-git clone https://github.com/твій_юзернейм/parcel_tracker.git
+git clone https://github.com/LeshkaKot/parcel_tracker.git
 cd parcel_tracker
 ```
 
@@ -23,14 +23,14 @@ cd parcel_tracker
 ```bash
 cp .env.example .env
 ```
-Заповни свої значення в `.env`.
+(Заповни свої значення в `.env`.)
 
 3. Запусти проект:
 ```bash
 docker compose up --build
 ```
 
-4. Створи суперкористувача (в окремому терміналі):
+4. Створи суперкористувача :
 ```bash
 docker compose exec web python manage.py createsuperuser
 ```
@@ -42,8 +42,7 @@ docker compose exec web python manage.py createsuperuser
 1. Створи та активуй віртуальне середовище:
 ```bash
 python -m venv venv
-venv\Scripts\activate  # Windows
-source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate  
 ```
 
 2. Встанови залежності:
@@ -88,7 +87,7 @@ GET запити доступні без токена (перегляд стат
 
 - Трек-номер генерується автоматично у форматі `UA` + 10 символів
 - `delivered` можливий лише після `arrived` у відділенні призначення
-- `delivered` та `returned` — кінцеві статуси, зміна неможлива
+- `delivered` та `returned` - кінцеві статуси, зміна неможлива
 - Вага: від 0 до 30 кг
 - Відділення відправлення та призначення не можуть збігатися
 
@@ -109,4 +108,4 @@ GET запити доступні без токена (перегляд стат
 
 ## Postman колекція
 
-Імпортуй файл `postman_collection.json` у Postman для готових прикладів запитів.
+Імпорт `postman_collection.json` у Postman для готових прикладів запитів.
