@@ -10,7 +10,10 @@ from .serializers import (
     StatusUpdateSerializer,
     StatusHistorySerializer
 )
+import logging
 
+
+logger = logging.getLogger('tracking')
 
 class PostOfficeViewSet(viewsets.ModelViewSet):
     queryset = PostOffice.objects.all()
@@ -65,6 +68,11 @@ class ParcelViewSet(viewsets.ModelViewSet):
 
             parcel.status = new_status
             parcel.save()
+
+            logger.info(
+                f"Parcel {parcel.tracking_number} status changed to "
+                f"{new_status} at office {office.number}"
+            )
 
             return Response(
                 ParcelSerializer(parcel).data,
