@@ -9,6 +9,13 @@
 - PostgreSQL
 - Docker Compose
 
+## Особливості
+- Токен-аутентифікація (read-only для анонімних, повний доступ для авторизованих)
+- Валідація бізнес-правил на рівні сериалізаторів
+- Логування змін статусів у файл
+- Пагінація результатів
+- Налаштована адмін-панель з фільтрами та пошуком
+
 ## Запуск проекту
 
 ### Через Docker 
@@ -43,7 +50,10 @@ docker compose exec web python manage.py createsuperuser
 ```bash
 python -m venv venv
 venv\Scripts\activate  
+or
+source venv/bin/activate (for mac/linux)
 ```
+
 
 2. Встанови залежності:
 ```bash
